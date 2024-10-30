@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="~{admin/layout-admin.html}">
+	layout:decorate="~{admin/layout-admin.html}">
+<head>
+</head>
+
 
 <body>
 	<section class="row" layout:fragment="content">
@@ -16,28 +19,29 @@
 					</div>
 					<div class="card-body">
 						<div class="mb-3" th:if="${category.isEdit}">
-							<label for="id" class="form-label">Category ID :</label>
+							<label for="id" class="form-label">Category ID :</label> <br>
 							<input type="hidden" th:field="*{isEdit}">
 							<input type="text" readonly="readonly" class="form-control" th:field="*{id}" id="id" name="id" 
 									aria-describedby="categoryIdid" placeholder="Category Id">
 							<div th:if="${#fields.hasErrors('id')}" id="categoryIdid" class="form-text text-muted"><span class="text-danger">Category ID is required !</span></div>
 						</div>
 						<div class="mb-3">
-							<label for="name" class="form-label">Category Name:</label> <input
+							<label for="name" class="form-label">Category Name:</label> <br> <input
 								type="text" class="form-control" th:field="*{name}" id="name"
 								placeholder="Category Name">
 						</div>
 						<div class="mb-3">
-							<label for="images">Images:</label> <input type="text"
+							<label for="images">Images:</label> <br> <input type="text"
 								class="form-control" th:field="*{images}" id="images"
 								placeholder="Enter images">
 						</div>
 						<div class="mb-3">
-							<label for="status">Status:</label> <input type="number"
+							<label for="status">Status:</label><br> <input type="number"
 								class="form-control" th:field="*{status}" id="status"
 								placeholder="Enter 1 for Active or 0 for Inactive" min="0"
 								max="1">
 						</div>
+						<br>
 					</div>
 					<!-- Nút Update nếu đang ở chế độ chỉnh sửa -->
 					<button type="submit" th:if="${category.isEdit}"
